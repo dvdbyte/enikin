@@ -1,0 +1,10 @@
+# Node modules
+client/node_modules/
+server/node_modules/
+
+# Vite build
+client/dist/
+
+# Logs
+*.log
+.env*
