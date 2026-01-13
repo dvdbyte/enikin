@@ -29,10 +29,10 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const agent = await Agent.findOne({ email: req.body.email });
-    if (!agent) return res.status(404).json("Agent not found");
+    if (!agent) return res.status(404).json({message : "Agent not found"});
 
     const validPassword = await bcrypt.compare(req.body.password, agent.password);
-    if (!validPassword) return res.status(400).json("Wrong password");
+    if (!validPassword) return res.status(400).json({message :"Wrong password"});
 
     const token = jwt.sign({ id: agent._id }, process.env.JWT_SECRET, { expiresIn: "30d" });
 
@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
     const { password, ...others } = agent._doc;
     res.status(200).json({ ...others, token });
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json({ message: "Server error", error: err });
   }
 });
 

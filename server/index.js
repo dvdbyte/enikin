@@ -16,7 +16,7 @@ const app = express();
 
 app.use(express.json());
 
-// --- START OF CORS CONFIGURATION ---
+
 const allowedOrigins = [
   "http://localhost:5173",                 
   "https://enikin-kkjj.onrender.com"     
