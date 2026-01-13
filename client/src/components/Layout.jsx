@@ -14,7 +14,7 @@ const Layout = () => {
   return (
     <div className="flex h-screen bg-gray-50 font-sans overflow-hidden">
       
-      {/* 1. MOBILE OVERLAY (Dark background when menu is open) */}
+      {/* 1. MOBILE OVERLAY */}
       {isSidebarOpen && (
         <div 
           className="fixed inset-0 z-40 bg-black bg-opacity-50 md:hidden transition-opacity" 

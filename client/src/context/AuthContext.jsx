@@ -7,7 +7,7 @@ export const AuthContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check if user is already logged in (saved in browser)
+    // Check if user is already logged in 
     const storedUser = localStorage.getItem("enikin_user");
     if (storedUser) {
       setUser(JSON.parse(storedUser));

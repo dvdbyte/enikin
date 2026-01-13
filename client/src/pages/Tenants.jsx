@@ -13,7 +13,7 @@ const Tenants = () => {
   const [showForm, setShowForm] = useState(false);
   const [loading, setLoading] = useState(false);
   
-  // NEW: Track Edit Mode
+  // Track Edit Mode
   const [editId, setEditId] = useState(null);
 
   const [formData, setFormData] = useState({
@@ -51,7 +51,7 @@ const Tenants = () => {
     setFormData({ ...formData, passport: e.target.files[0] });
   };
 
-  // NEW: Open Edit Form
+  // Open Edit Form
   const handleEdit = (tenant) => {
     setEditId(tenant._id);
     setFormData({
@@ -59,12 +59,12 @@ const Tenants = () => {
       phone: tenant.phone,
       email: tenant.email || '',
       address: tenant.address || '',
-      passport: null // Reset file input (only upload if changing)
+      passport: null 
     });
     setShowForm(true);
   };
 
-  // NEW: Reset Form
+  // Reset Form
   const handleAddNew = () => {
     setEditId(null);
     setFormData({ name: '', phone: '', email: '', address: '', passport: null });
@@ -86,10 +86,10 @@ const Tenants = () => {
     
     try {
       if (editId) {
-        // UPDATE (PUT)
+        // UPDATE 
         await API.put(`/tenants/${editId}`, data, { headers: { 'Content-Type': 'multipart/form-data' } });
       } else {
-        // CREATE (POST) - Add Agent ID
+        // CREATE 
         data.append('agentId', user._id);
         await API.post('/tenants', data, { headers: { 'Content-Type': 'multipart/form-data' } });
       }

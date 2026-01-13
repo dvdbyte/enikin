@@ -31,13 +31,13 @@ const Settings = () => {
         .filter(n => !isNaN(n));
 
       const res = await API.put('/auth/profile', {
-        userId: user._id, // Send ID to know who to update
+        userId: user._id, 
         name: formData.name,
         email: formData.email,
         reminderSettings: settingsArray
       });
 
-      login(res.data); // Update Context/LocalStorage with new data
+      login(res.data); 
       alert("Settings Saved!");
     } catch (err) {
       console.error(err);
@@ -51,7 +51,7 @@ const Settings = () => {
   const runManualCheck = async () => {
     try {
       const res = await API.post('/leases/check-reminders');
-      alert(res.data.message); // "Check complete. Generated X alerts."
+      alert(res.data.message); 
     } catch (err) {
       alert("Error running check.");
     }

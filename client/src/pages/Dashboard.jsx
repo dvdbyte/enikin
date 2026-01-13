@@ -48,7 +48,7 @@ const Dashboard = () => {
       // Calculate Total Money Flow (Rent + All Fees)
       const totalVolume = activeLeases.reduce((sum, l) => sum + (l.totalPackage || 0), 0);
 
-      // Calculate YOUR Profit (Agency + Legal)
+      // Calculate AGENT'S Profit (Agency + Legal)
       const agencyRevenue = activeLeases.reduce((sum, l) => {
         return sum + (l.agencyFee || 0) + (l.legalFee || 0);
       }, 0);
@@ -62,8 +62,7 @@ const Dashboard = () => {
         agencyRevenue
       });
 
-      // 3. ENRICH NOTIFICATIONS (Attach Phone Numbers & Names)
-      // The notification table only has leaseId. We need to find the tenant details from the lease list.
+      // 3. NOTIFICATIONS
       const enrichedNotifications = rawNotifications.map(notif => {
         const lease = leases.find(l => l._id === notif.leaseId);
         return {
@@ -84,7 +83,7 @@ const Dashboard = () => {
     }
   };
 
-  // --- 💬 SMART WHATSAPP SCRIPT GENERATOR ---
+  // --- WHATSAPP SCRIPT GENERATOR ---
   const getWhatsAppLink = (n) => {
     let text = "";
     
@@ -197,7 +196,7 @@ const Dashboard = () => {
       {/* NOTIFICATIONS & ACTIONS SECTION */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
-        {/* ALERTS PANEL (2/3 Width) */}
+        {/* ALERTS PANEL */}
         <div className="lg:col-span-2 bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden flex flex-col h-full">
           <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
             <h2 className="font-bold text-lg text-gray-800 flex items-center gap-2">

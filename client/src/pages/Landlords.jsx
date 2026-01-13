@@ -48,7 +48,7 @@ const Landlords = () => {
     setShowForm(true);
   };
 
-  // ✅ Optimized handleSubmit
+  // handleSubmit
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

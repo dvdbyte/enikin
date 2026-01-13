@@ -12,14 +12,14 @@ const Leases = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [activeTab, setActiveTab] = useState('Active'); 
   
-  // State to track which row's menu is open
+ 
   const [openMenuId, setOpenMenuId] = useState(null);
 
   useEffect(() => {
     if (user) fetchLeases();
   }, [user]);
 
-  // Close menu when clicking anywhere else
+
   useEffect(() => {
     const handleClickOutside = () => setOpenMenuId(null);
     window.addEventListener('click', handleClickOutside);
@@ -34,7 +34,7 @@ const Leases = () => {
       const lower = searchTerm.toLowerCase();
       results = results.filter(l => 
         l.tenantId?.name.toLowerCase().includes(lower) || 
-        // SEARCH FIX: Look inside apartment -> property -> title
+      
         l.apartmentId?.propertyId?.title.toLowerCase().includes(lower) ||
         l.apartmentId?.unitNumber.toLowerCase().includes(lower)
       );
@@ -62,14 +62,14 @@ const Leases = () => {
     }
   };
 
- // 1. ADD THIS FUNCTION INSIDE THE COMPONENT (Before return)
+
 
   const generateReceipt = (lease) => {
     const doc = new jsPDF();
     const pageWidth = doc.internal.pageSize.getWidth();
     
     // --- HEADER ---
-    doc.setFillColor(200, 30, 30); // Enikin Red
+    doc.setFillColor(200, 30, 30); 
     doc.rect(0, 0, pageWidth, 40, 'F');
     
     doc.setTextColor(255, 255, 255);

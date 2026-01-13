@@ -67,7 +67,7 @@ router.get('/', async (req, res) => {
       // Get Apartment details AND the parent Building details
       .populate({
         path: 'apartmentId',
-        select: 'unitNumber type rentPrice', 
+        select: 'name rentPrice', 
         populate: { 
           path: 'propertyId', 
           select: 'title address' 

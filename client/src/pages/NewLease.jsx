@@ -19,7 +19,7 @@ const NewLease = () => {
     startDate: '',
     durationInYears: 1,
     
-    // Financials (Will be auto-filled)
+    // Financials 
     rentAmount: '',
     agencyFee: '',
     legalFee: '',
@@ -51,7 +51,7 @@ const NewLease = () => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
 
-    // AUTO-FILL LOGIC: If user selects an apartment, pull its prices
+    // If user selects an apartment, pull its prices
     if (name === 'apartmentId') {
       const selectedApt = apartments.find(a => a._id === value);
       if (selectedApt) {
@@ -97,7 +97,7 @@ const NewLease = () => {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           
-          {/* SECTION 1: WHO & WHERE */}
+          {/* WHO & WHERE */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-2">Select Unit (Vacant Only)</label>
@@ -134,7 +134,7 @@ const NewLease = () => {
             </div>
           </div>
 
-          {/* SECTION 2: DURATION */}
+          {/* DURATION */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-gray-50 p-4 rounded-lg">
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-2">Start Date</label>
@@ -161,7 +161,7 @@ const NewLease = () => {
             </div>
           </div>
 
-          {/* SECTION 3: MONEY (Auto-Filled) */}
+          {/* MONEY */}
           <div>
             <h3 className="text-sm font-bold text-gray-500 uppercase mb-4 flex items-center gap-2">
               <Calculator size={16}/> Payment Breakdown (Confirm Details)

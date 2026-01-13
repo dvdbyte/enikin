@@ -13,9 +13,9 @@ const Apartments = () => {
   const [loading, setLoading] = useState(false);
   const [editId, setEditId] = useState(null);
 
-  // SIMPLIFIED STATE: No unitNumber, No type. Just 'name'.
+  
   const [formData, setFormData] = useState({
-    name: '', // e.g. "Flat 1" or "2 Bedroom (A)"
+    name: '', 
     propertyId: '', 
     rentPrice: '', agencyFee: '', legalFee: '', cautionFee: ''
   });
@@ -37,11 +37,8 @@ const Apartments = () => {
 
   // --- FIX IS HERE ---
   const filteredApartments = apartments.filter(a => {
-    // 1. SAFELY GET VALUES (If 'name' is missing, use empty string)
     const unitName = a.name || ""; 
-    // Fallback for old data if you want to be able to search them too:
-    // const unitName = a.name || a.unitNumber || ""; 
-    
+        
     const propertyTitle = a.propertyId?.title || "";
     
     const matchesSearch = unitName.toLowerCase().includes(searchTerm.toLowerCase()) || 
@@ -57,7 +54,6 @@ const Apartments = () => {
   const handleEdit = (apt) => {
     setEditId(apt._id);
     setFormData({
-      // Load name, or fallback to old unitNumber so you don't lose data when editing
       name: apt.name || apt.unitNumber || '', 
       propertyId: apt.propertyId?._id || '',
       rentPrice: apt.rentPrice, agencyFee: apt.agencyFee, legalFee: apt.legalFee, cautionFee: apt.cautionFee
@@ -108,7 +104,7 @@ const Apartments = () => {
           <div key={apt._id} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm relative group hover:shadow-md transition">
             <button onClick={() => handleEdit(apt)} className="absolute top-4 right-4 text-gray-400 hover:text-blue-600 bg-white rounded-full p-1 shadow-sm border border-gray-100"><Edit2 size={16} /></button>
 
-            {/* SINGLE BOLD IDENTIFIER (SAFE RENDER) */}
+            {/* SINGLE BOLD IDENTIFIER */}
             <div className="mb-4">
                 {/* Visual Fallback: If name is missing, try showing unitNumber, or "Unnamed" */}
                 <h3 className="text-2xl font-extrabold text-gray-800 tracking-tight">

@@ -28,7 +28,7 @@ const Sidebar = ({ onClose }) => {
   return (
     <div className="h-full bg-white border-r border-gray-100 flex flex-col relative">
       
-      {/* HEADER + CLOSE BUTTON (Mobile Only) */}
+      {/* HEADER  */}
       <div className="p-6 flex items-center justify-between">
         <h1 className="text-2xl font-bold text-enikin-red tracking-tight">Enikin<span className="text-gray-800">.</span></h1>
         
@@ -46,7 +46,7 @@ const Sidebar = ({ onClose }) => {
             <Link
               key={item.name}
               to={item.path}
-              onClick={onClose} // CLOSE SIDEBAR WHEN CLICKED
+              onClick={onClose} 
               className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-sm font-medium ${
                 isActive 
                   ? 'bg-red-50 text-enikin-red' 

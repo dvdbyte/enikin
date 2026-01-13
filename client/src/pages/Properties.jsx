@@ -6,7 +6,7 @@ import { AuthContext } from '../context/AuthContext';
 
 const Properties = () => {
   const { user } = useContext(AuthContext);
-  const location = useLocation(); // Allows us to read the URL (?landlordId=...)
+  const location = useLocation(); 
   const [properties, setProperties] = useState([]);
   const [landlords, setLandlords] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -115,7 +115,7 @@ const Properties = () => {
         ))}
       </div>
 
-      {/* FORM MODAL (Same as previous) */}
+      {/* FORM MODAL*/}
       {showForm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-4">
           <div className="bg-white p-6 rounded-lg w-full max-w-md shadow-xl">

@@ -5,10 +5,10 @@ const Header = ({ user, toggleSidebar }) => {
   return (
     <div className="bg-white h-16 border-b border-gray-100 flex items-center justify-between px-4 md:px-8 sticky top-0 z-30">
       
-      {/* LEFT SIDE: Hamburger (Mobile) + Search (Desktop) */}
+      {/* LEFT SIDE */}
       <div className="flex items-center gap-4">
         
-        {/* MOBILE MENU BUTTON (Hidden on Desktop 'md:hidden') */}
+        {/* MOBILE MENU BUTTON */}
         <button 
           onClick={toggleSidebar} 
           className="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-lg focus:outline-none"
@@ -16,7 +16,7 @@ const Header = ({ user, toggleSidebar }) => {
           <Menu size={24} />
         </button>
 
-        {/* SEARCH BAR (Hidden on Mobile 'hidden md:block') */}
+        {/* SEARCH BAR */}
         <div className="relative w-64 hidden md:block">
           <Search className="absolute left-3 top-2.5 text-gray-400" size={18} />
           <input 
