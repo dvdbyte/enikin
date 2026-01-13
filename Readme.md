@@ -1,8 +1,8 @@
 # Enikin (Web): <a href="#" target="_blank">Visit Here</a>
 
-<a href="#" target="_blank">
-<img src="https://via.placeholder.com/800x400?text=Enikin+Demo+Preview" width="100%" alt="Enikin Demo Video"/>
-</a>
+<a href="https://shawncharles.com/travelara" target="_blank">
+<img src="https://github.com/CharlesCreativeContent/CharlesCreativeContent/blob/main/images/gif1.gif?raw=true" width="100%" alt="FarmMoni Demo Video"/>
+</a
 
 A robust **Property Management Dashboard** designed to streamline the chaotic
 process of managing real estate portfolios. Enikin empowers agents and
